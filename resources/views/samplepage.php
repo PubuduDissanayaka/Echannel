@@ -1,4 +1,8 @@
-@extends('layouts.app', ['activePage' => 'dashboard', 'titlePage' => __('Dashboard')])
+@extends('layouts.app', ['activePage' => 'addtime', 'titlePage' => __('addtime')])
+
+@section('externalcss')
+    
+@endsection
 
 @section('content')
   <div class="content">
@@ -6,4 +10,8 @@
 
     </div>
   </div>
+@endsection
+
+@section('externaljs')
+    
 @endsection

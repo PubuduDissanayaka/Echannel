@@ -24,7 +24,7 @@
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse show" id="laravelExample">
+        <div class="collapse hide" id="laravelExample">
           <ul class="nav">
             <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
               <a class="nav-link" href="{{ route('profile.edit') }}">
@@ -41,6 +41,35 @@
           </ul>
         </div>
       </li>
+
+      {{-- doctime management --}}
+      <li class="nav-item {{ ($activePage == 'doctime' || $activePage == 'addtime') ? ' active' : '' }}">
+        <a class="nav-link" data-toggle="collapse" href="#expanddoctime" aria-expanded="true">
+          {{-- <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i> --}}
+          <i class="material-icons">assignment_ind</i>
+          <p>{{ __('Doctor Management') }}
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse hide" id="expanddoctime">
+          <ul class="nav">
+            <li class="nav-item{{ $activePage == 'doctime' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('doctimes.index') }}">
+                <i class="material-icons">assignment</i>
+                <span class="sidebar-normal">{{ __('Doctor List') }} </span>
+              </a>
+            </li>
+            <li class="nav-item{{ $activePage == 'addtime' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('doctimes.create') }}">
+                <i class="material-icons">alarm_add</i>
+                <span class="sidebar-normal"> {{ __('Schedule TimeSlot') }} </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      {{-- end doctime management --}}
+
       <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('table') }}">
           <i class="material-icons">content_paste</i>
