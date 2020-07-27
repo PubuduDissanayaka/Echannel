@@ -81,7 +81,7 @@ class DoctimeController extends Controller
     public function show($id)
     {
         $doctors = DB::table('users')->where('id', $id)->first();
-        $doctimes = DB::table('doctimes')->where('name', $doctors->name)->orderBy('date', 'desc')->get();
+        $doctimes = DB::table('doctimes')->where('name', $doctors->name)->orderBy('id', 'asc')->get();
         // dd($doctimes);
         return view('doctimes.show')->with('doctors', $doctors)->with('doctimes', $doctimes);
     }

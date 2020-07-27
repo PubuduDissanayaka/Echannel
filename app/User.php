@@ -44,4 +44,10 @@ class User extends Authenticatable
         return $this->belongsTo('App\specializations');
     }
     
+    
+    public function details()
+    {
+        return $this->belongsTo('App\UserDetails');
+    }
+    
 }

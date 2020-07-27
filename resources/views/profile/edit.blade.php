@@ -4,7 +4,93 @@
   <div class="content">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-7"></div>
+        <div class="col-sm-7">
+          <div class="card ">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">{{ __('User Profile') }}</h4>
+              <p class="card-category">{{ __('User information') }}</p>
+            </div>
+            <div class="card-body ">
+              <div class="row">
+                {{-- {{ isset($userdetails->maritalstatus) ? $userdetails->maritalstatus : 'Married'}} --}}
+                @if (isset($userdetails))
+                  <a href="/userdetails/{{auth()->user()->id}}/edit" class="btn btn-info btn-sm">Change Details</a>
+                @else
+                  <a href="/userdetails/create" class="btn btn-success btn-sm">Add Details</a>
+                @endif
+              </div>
+              <div class="row">
+                <label class="col-sm-3 col-form-label">{{ __('Name') }}</label>
+                <div class="col-sm-9">
+                  <label class="col-sm col-form-label">{{ auth()->user()->name }}</label>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-3 col-form-label">{{ __('Email') }}</label>
+                <div class="col-sm-9">
+                  <label class="col-sm col-form-label">{{ auth()->user()->email }}</label>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-3 col-form-label">{{ __('Blood Group') }}</label>
+                <div class="col-sm-9">
+                  <label class="col-sm col-form-label">{{ $userdetails->bloodG }}</label>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-3 col-form-label">{{ __('Phone Number') }}</label>
+                <div class="col-sm-9">
+                  <label class="col-sm col-form-label">{{ $userdetails->phone }}</label>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-3 col-form-label">{{ __('Emergency Contact') }}</label>
+                <div class="col-sm-9">
+                  <label class="col-sm col-form-label">{{ $userdetails->emergency_number }}</label>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-3 col-form-label">{{ __('Gender') }}</label>
+                <div class="col-sm-9">
+                  <label class="col-sm col-form-label">{{ $userdetails->gender }}</label>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-3 col-form-label">{{ __('Address') }}</label>
+                <div class="col-sm-9">
+                  <label class="col-sm col-form-label">{{ $userdetails->address }}</label>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-3 col-form-label">{{ __('City') }}</label>
+                <div class="col-sm-9">
+                  <label class="col-sm col-form-label">{{ $userdetails->city }}</label>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-3 col-form-label">{{ __('NIC') }}</label>
+                <div class="col-sm-9">
+                  <label class="col-sm col-form-label">{{ $userdetails->nic }}</label>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-3 col-form-label">{{ __('Date of Birth') }}</label>
+                <div class="col-sm-9">
+                  <label class="col-sm col-form-label">{{ $userdetails->dob }}</label>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-3 col-form-label">{{ __('Marital Status') }}</label>
+                <div class="col-sm-9">
+                  <label class="col-sm col-form-label">{{ $userdetails->maritalstatus }}</label>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
         <div class="col-sm-5">
           <div class="row">
             <div class="col-md-12">
@@ -31,8 +117,8 @@
                       </div>
                     @endif
                     <div class="row">
-                      <label class="col-sm-3 col-form-label">{{ __('Name') }}</label>
-                      <div class="col-sm-9">
+                      <label class="col-sm-4 col-form-label">{{ __('Name') }}</label>
+                      <div class="col-sm-8">
                         <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                           <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" id="input-name" type="text" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required="true" aria-required="true"/>
                           @if ($errors->has('name'))
@@ -42,8 +128,8 @@
                       </div>
                     </div>
                     <div class="row">
-                      <label class="col-sm-3 col-form-label">{{ __('Email') }}</label>
-                      <div class="col-sm-9">
+                      <label class="col-sm-4 col-form-label">{{ __('Email') }}</label>
+                      <div class="col-sm-8">
                         <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                           <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" id="input-email" type="email" placeholder="{{ __('Email') }}" value="{{ old('email', auth()->user()->email) }}" required />
                           @if ($errors->has('email'))
@@ -54,7 +140,7 @@
                     </div>
                   </div>
                   <div class="card-footer ml-auto mr-auto">
-                    <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                    <button type="submit" class="btn btn-primary btn-sm">{{ __('Save') }}</button>
                   </div>
                 </div>
               </form>
@@ -116,7 +202,7 @@
                     </div>
                   </div>
                   <div class="card-footer ml-auto mr-auto">
-                    <button type="submit" class="btn btn-primary">{{ __('Change password') }}</button>
+                    <button type="submit" class="btn btn-primary btn-sm">{{ __('Change password') }}</button>
                   </div>
                 </div>
               </form>

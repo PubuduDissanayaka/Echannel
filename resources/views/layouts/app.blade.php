@@ -18,9 +18,16 @@
     @yield('externalcss')
     @notify_css
 
-    <style>
+    {{-- <style>
+        body{
+            
+            background: rgba(50, 71, 137, 1.0);
+            background: -webkit-linear-gradient(bottom right, rgba(50, 71, 137, 1.0), rgba(218, 206, 197, 1.0));
+            background: -moz-linear-gradient(bottom right, rgba(50, 71, 137, 1.0), rgba(218, 206, 197, 1.0));
+            background: linear-gradient(to top left, rgba(50, 71, 137, 1.0), rgba(218, 206, 197, 1.0));
         
-    </style>
+        }
+    </style> --}}
 
     </head>
     <body class="{{ $class ?? '' }}">

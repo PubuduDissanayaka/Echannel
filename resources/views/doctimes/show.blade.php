@@ -33,12 +33,16 @@
                           <th>
                             Time
                           </th>
+                          <th>
+                            Action
+                          </th>
                         </tr></thead>
 
                         <tbody>
                             @foreach ($doctimes as $doctime)
                                 <tr>
                                 <td>
+                                    {{-- {{$doctime->count()}} --}}
                                     {{$doctime->id}}
                                 </td>
                                 <td>
@@ -52,6 +56,9 @@
                                 </td>
                                 <td class="text-primary">
                                     {{$doctime->timeone}}
+                                </td>
+                                <td class="text-primary">
+                                  <a href="#" class="btn btn-danger btn-sm"><i class="icon-remove"></i> Delete</a>
                                 </td>
                                 </tr>      
                             @endforeach
