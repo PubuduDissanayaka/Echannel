@@ -115,8 +115,13 @@ class DoctimeController extends Controller
      * @param  \App\Doctime  $doctime
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Doctime $doctime)
+    public function destroy($id)
     {
-        //
+        $time = Doctime::find($id);
+        
+        $doctors = DB::table('users')->where('acc_type', '2')->get();
+        $time -> delete();
+        return view('doctimes.index')->with('doctors',$doctors);
+        
     }
 }

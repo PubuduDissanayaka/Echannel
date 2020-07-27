@@ -58,7 +58,9 @@
                                     {{$doctime->timeone}}
                                 </td>
                                 <td class="text-primary">
-                                  <a href="#" class="btn btn-danger btn-sm"><i class="icon-remove"></i> Delete</a>
+                                  {{Form::open(['route'=>['doctimes.destroy', $doctime->id],'method'=>'DELETE', 'class'=>'inline'])}}
+                                      <button type="submit"  class="btn btn-danger btn-sm"><i class="fa fa-remove"></i> Delete Schedule</button>
+                                  {!! Form::close() !!}
                                 </td>
                                 </tr>      
                             @endforeach

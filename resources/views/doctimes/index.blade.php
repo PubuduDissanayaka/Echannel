@@ -36,7 +36,7 @@
                                 {{$doc->name}}
                             </td>
                             <td>
-                                <a href="doctimes/{{$doc->id}}" class="btn btn-success btn-sm">View Schedules</a>
+                                <a href="/doctimes/{{$doc->id}}" class="btn btn-success btn-sm">View Schedules</a>
                             </td>
                             </tr>
                         @endforeach
