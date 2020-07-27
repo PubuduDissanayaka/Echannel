@@ -64,6 +64,31 @@
       </li>
       {{-- end doctime management --}}
 
+      <li class="nav-item {{ ($activePage == 'presciadd' || $activePage == 'prescishow') ? ' active' : '' }}">
+        <a class="nav-link" data-toggle="collapse" href="#expandmedhis" aria-expanded="true">
+          <i class="material-icons">speaker_notes</i>
+          <p>{{ __('Medical History') }}
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse hide" id="expandmedhis">
+          <ul class="nav">
+            <li class="nav-item{{ $activePage == 'prescishow' ? ' active' : '' }}">
+              <a class="nav-link" href="/prescriptions/{{auth()->user()->id}}">
+                <i class="material-icons">favorite_border</i>
+                <span class="sidebar-normal">{{ __('My Histry') }} </span>
+              </a>
+            </li>
+            <li class="nav-item{{ $activePage == 'presciadd' ? ' active' : '' }}">
+              <a class="nav-link" href="/prescriptions/create">
+                <i class="material-icons">addchart</i>
+                <span class="sidebar-normal"> {{ __('Add Prescription') }} </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
       {{-- <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('table') }}">
           <i class="material-icons">content_paste</i>

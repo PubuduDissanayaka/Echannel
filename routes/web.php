@@ -64,5 +64,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::resource('doctimes', 'DoctimeController');
 Route::resource('userdetails', 'UserDetailsController');
 
+Route::resource('prescriptions', 'PrescriptionsController');
+
 
 

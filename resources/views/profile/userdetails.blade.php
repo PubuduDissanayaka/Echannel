@@ -21,28 +21,29 @@
                                 <label class="control-label " for="bloodG">
                                     Blood Group
                                 </label>
-                                <select class="select form-control" id="bloodG" name="bloodG" value="{{ isset($userdetails->bloodG) ? $userdetails->bloodG : ''}}">
-                                <option selected="selected" value="">
+                                <select class="select form-control" id="bloodG" name="bloodG" value="">
+                                <option selected="selected" hidden value="{{ isset($userdetails->bloodG) ? $userdetails->bloodG : ''}}">
+                                    {{$userdetails->bloodG}}
                                 </option>
-                                <option value="{{ isset($userdetails->bloodG) ? $userdetails->bloodG : 'A Positive (A+)'}}">
+                                <option value="A Positive (A+)">
                                 A Positive (A+)
                                 </option>
-                                <option value="{{ isset($userdetails->bloodG) ? $userdetails->bloodG : 'B Negative (B-)'}}">
+                                <option value="B Negative (B-)">
                                 B Negative (B-)
                                 </option>
-                                <option value="{{ isset($userdetails->bloodG) ? $userdetails->bloodG : 'B Positive (B+)'}}">
+                                <option value="B Positive (B+)">
                                 B Positive (B+)
                                 </option>
-                                <option value="{{ isset($userdetails->bloodG) ? $userdetails->bloodG : 'AB Negative (AB-)'}}">
+                                <option value="AB Negative (AB-)">
                                 AB Negative (AB-)
                                 </option>
-                                <option value="{{ isset($userdetails->bloodG) ? $userdetails->bloodG : 'AB Positive (AB+)'}}">
+                                <option value="AB Positive (AB+)">
                                 AB Positive (AB+)
                                 </option>
-                                <option value="{{ isset($userdetails->bloodG) ? $userdetails->bloodG : 'O Negative (O-)'}}">
+                                <option value="O Negative (O-)">
                                 O Negative (O-)
                                 </option>
-                                <option value="{{ isset($userdetails->bloodG) ? $userdetails->bloodG : 'O Positive (O+)'}}">
+                                <option value="O Positive (O+)">
                                 O Positive (O+)
                                 </option>
                                 </select>
@@ -73,7 +74,8 @@
                                 Gender
                                 </label>
                                 <select class="select form-control" id="Gender" name="Gender">
-                                <option selected="selected" value="">
+                                <option selected="selected" hidden value="{{ isset($userdetails->gender) ? $userdetails->gender : ''}}">
+                                    {{$userdetails->gender}}
                                 </option>
                                 <option value="{{ isset($userdetails->gender) ? $userdetails->gender : 'Male'}}">
                                 Male
@@ -127,7 +129,8 @@
                                 Marital Status
                                 </label>
                                 <select class="select form-control" id="maritalstatus" name="maritalstatus">
-                                <option selected="selected" value="">
+                                <option selected="selected" hidden value="{{ isset($userdetails->maritalstatus) ? $userdetails->maritalstatus : ''}}">
+                                    {{$userdetails->maritalstatus}}
                                 </option>
                                 <option value="{{ isset($userdetails->maritalstatus) ? $userdetails->maritalstatus : 'Single'}}">
                                     Single

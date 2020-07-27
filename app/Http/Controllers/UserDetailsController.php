@@ -143,10 +143,8 @@ class UserDetailsController extends Controller
         $userdetails->dob = $request->dob;
         $userdetails->maritalstatus = $request->maritalstatus;
         
-        
-        // $userdetails = DB::table('user_details')->where('user_id', auth()->user()->id)->first();
-        $userdetails->save();
         // dd($userdetails);
+        $userdetails->save();
         return view('profile.edit')->with('userdetails', $userdetails);
 
         
