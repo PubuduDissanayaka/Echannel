@@ -23,7 +23,7 @@
                     <form method="post">
                         <div class="form-group ">
                          <div class="input-group">
-                          <input class="form-control " id="search" name="search" placeholder="search patient" type="text"/>
+                          <input class="form-control " id="search" name="search" placeholder="search patient" value="{{ request('search') }}" type="text"/>
                          </div>
                         </div>
                         <div class="form-group">
@@ -53,7 +53,7 @@
                         </thead>
                           
                           <tbody>
-                            @foreach ($user as $u)
+                            @forelse ($user as $u)
                                   
                               <tr>
                                   <td>
@@ -69,12 +69,23 @@
                                         <a href="/prescriptions/create" class="btn btn-success btn-sm">Add Prescription</a>
                                     </td>
                                 </tr>
+                            
+                                @empty
+                                    <tr>
+                                        <td>
+                                            <p class="lead"> No Users Available Here</p>
+                                        </td>
+                                    </tr>
                                 
-                            @endforeach
-                          </tbody>
-      
-                        </table>
-                      </div>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+                    <div class="row">
+                        <div class="col-md-4 offset-4 d-block">
+                            <div class="pagination-wrapper d-block"> {!! $user->appends(['search' => Request::get('search')])->render() !!} </div>
+                        </div>
+                    </div>
                 </div>
                 </div>
             </div>
