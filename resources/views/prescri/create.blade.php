@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'presciadd', 'titlePage' => __('presciadd')])
+@extends('layouts.app', ['activePage' => 'presciusers', 'titlePage' => __('presciusers')])
 
 @section('externalcss')
     
@@ -9,20 +9,33 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
                 <div class="card">
                 <div class="card-header card-header-primary">
-                    <h4 class="card-title ">Add Prescription</h4>
-                    <p class="card-category">add prescription for Patient</p>
+                    <h4 class="card-title ">Add prescription</h4>
+                    <p class="card-category">write prescription or User 1</p>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <div class="h6">Lorem ipsum dolor sit amet consectetur adipisicing.</div>
-                        <p class="p">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut alias facilis doloribus quia officiis iusto quos dolorem cumque. Porro, accusantium vel quam quaerat unde laboriosam. Molestiae doloribus perferendis temporibus laborum?</p>
-                        <ul>
-                            <li>Lorem, ipsum dolor.</li>
-                            <li>Lorem, ipsum</li>
-                        </ul>
-                    </div>
+                    <form method="post">
+                        <div class="form-group ">
+                         <input class="form-control" id="title" name="title" placeholder="Title" type="text"/>
+                        </div><br>
+                        <div class="form-group ">
+                         <textarea class="form-control" cols="40" id="message" name="message" rows="15"></textarea>
+                        </div>
+                        <div class="form-group">
+                         <div>
+                          <button class="btn btn-success btn-block" name="submit" type="submit">
+                           Submit
+                          </button>
+                         </div>
+                        </div>
+                    </form>
+                    
                 </div>
                 </div>
             </div>
@@ -32,5 +45,16 @@
 @endsection
 
 @section('externaljs')
-    
+<script src="https://cdn.tiny.cloud/1/ck5lksam8dja2hvssb8hndfyhnd9qxvwobl1z6lxjuwyswym/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+<script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'advlist autolink lists link charmap preview',
+      toolbar: "undo redo styleselect bold italic alignleft aligncenter alignright alignjustify | bullist numlist outdent indent",
+        lists_indent_on_tab: true,
+      toolbar_mode: 'floating',
+    });
+</script>
+
 @endsection

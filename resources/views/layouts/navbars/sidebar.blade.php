@@ -64,7 +64,7 @@
       </li>
       {{-- end doctime management --}}
 
-      <li class="nav-item {{ ($activePage == 'presciadd' || $activePage == 'prescishow') ? ' active' : '' }}">
+      <li class="nav-item {{ ($activePage == 'presciusers' || $activePage == 'prescishow') ? ' active' : '' }}">
         <a class="nav-link" data-toggle="collapse" href="#expandmedhis" aria-expanded="true">
           <i class="material-icons">speaker_notes</i>
           <p>{{ __('Medical History') }}
@@ -79,8 +79,8 @@
                 <span class="sidebar-normal">{{ __('My Histry') }} </span>
               </a>
             </li>
-            <li class="nav-item{{ $activePage == 'presciadd' ? ' active' : '' }}">
-              <a class="nav-link" href="/prescriptions/create">
+            <li class="nav-item{{ $activePage == 'presciusers' ? ' active' : '' }}">
+              <a class="nav-link" href="/prescriptions">
                 <i class="material-icons">addchart</i>
                 <span class="sidebar-normal"> {{ __('Add Prescription') }} </span>
               </a>

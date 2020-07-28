@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Prescriptions;
 use Illuminate\Http\Request;
+use App\User;
+use App\UserDetails;
+
 
 class PrescriptionsController extends Controller
 {
@@ -12,9 +15,26 @@ class PrescriptionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $keyword = $request->get('search');
+        $perPage = 10;
+
+        if (!empty($keyword)) {
+            $user = User::where('acc_type', '3')
+                ->orWhere('name', 'LIKE', "%$keyword%")
+                ->orWhere('email', 'LIKE', "%$keyword%")
+                ->latest()->paginate($perPage); 
+        } else {
+            $user = User::where('acc_type', '3')->paginate($perPage);
+        }
+
+        return view('prescri.userlist')->with('user', $user);
+    }
+
+    public function userlist()
+    {
+        
     }
 
     /**
@@ -45,7 +65,7 @@ class PrescriptionsController extends Controller
      * @param  \App\Prescriptions  $prescriptions
      * @return \Illuminate\Http\Response
      */
-    public function show(Prescriptions $prescriptions)
+    public function show($id)
     {
         return view('prescri.show');
     }
