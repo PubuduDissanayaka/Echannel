@@ -64,8 +64,17 @@ Route::group(['middleware' => 'auth'], function () {
 Route::resource('doctimes', 'DoctimeController');
 Route::resource('userdetails', 'UserDetailsController');
 
+Route::get('/prescriptions/create/{id}', 'PrescriptionsController@createpres');
 Route::resource('prescriptions', 'PrescriptionsController');
+
 Route::get('prescriptions/userlist', 'PrescriptionsController@userlist');
+
+Route::resource('echannel', 'EchannelController');
+Route::post('/echannel/search', 'EchannelController@search'); 
+Route::get('/echannel/create/{id}', 'EchannelController@create'); 
+
+
+
 
 
 

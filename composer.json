@@ -18,7 +18,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
         "laravelcollective/html": "^6.1",
-        "yoeunes/notify": "^1.0"
+        "yoeunes/notify": "^1.0",
+        "yoeunes/toastr": "^1.2"
     },
     "require-dev": {
         "appzcoder/crud-generator": "^3.2",

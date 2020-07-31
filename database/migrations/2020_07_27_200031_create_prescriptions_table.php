@@ -15,7 +15,15 @@ class CreatePrescriptionsTable extends Migration
     {
         Schema::create('prescriptions', function (Blueprint $table) {
             $table->id();
+            
+            $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->string('doc_name', 100)->nullable();
+            $table->string('title', 100)->nullable();
+            $table->longText('prescription')->nullable();
             $table->timestamps();
+
+            
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

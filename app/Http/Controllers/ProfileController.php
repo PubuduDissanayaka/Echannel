@@ -50,4 +50,8 @@ class ProfileController extends Controller
 
         return back()->withStatusPassword(__('Password successfully updated.'));
     }
+
+    public function show($id){
+        
+    }
 }

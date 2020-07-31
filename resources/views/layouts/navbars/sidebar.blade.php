@@ -6,7 +6,8 @@
   -->
   <div class="logo">
     <a href="{{ route('home') }}" class="simple-text logo-normal">
-      Echannel
+      {{-- Echannel --}}
+      <img src="{{ asset('material') }}/img/logo.jpg" alt="" height="60px" width="259px" srcset="">
     </a>
   </div>
   <div class="sidebar-wrapper">
@@ -14,7 +15,7 @@
       <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('home') }}">
           <i class="material-icons" >dashboard</i>
-            <p>{{ __('Dashboard') }}</p>
+            <p>{{ __('Home') }}</p>
         </a>
       </li>
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
@@ -89,12 +90,12 @@
         </div>
       </li>
 
-      {{-- <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('table') }}">
-          <i class="material-icons">content_paste</i>
-            <p>{{ __('Table List') }}</p>
+      <li class="nav-item{{ $activePage == 'echannel' ? ' active' : '' }}">
+        <a class="nav-link" href="/echannel">
+          <i class="material-icons">add_ic_call</i>
+            <p>{{ __('E-Channelling') }}</p>
         </a>
-      </li> --}}
+      </li>
       {{-- <li class="nav-item{{ $activePage == 'typography' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('typography') }}">
           <i class="material-icons">library_books</i>

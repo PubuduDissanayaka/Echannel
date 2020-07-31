@@ -17,16 +17,18 @@
                 <div class="card">
                 <div class="card-header card-header-primary">
                     <h4 class="card-title ">Add prescription</h4>
-                    <p class="card-category">write prescription or User 1</p>
+                    <p class="card-category">write prescription for {{$user->name}}</p>
                 </div>
                 <div class="card-body">
-                    <form method="post">
+                    {!! Form::open(['route' => 'prescriptions.store', 'class'=> '']) !!}
                         <div class="form-group ">
                          <input class="form-control" id="title" name="title" placeholder="Title" type="text"/>
                         </div><br>
                         <div class="form-group ">
-                         <textarea class="form-control" cols="40" id="message" name="message" rows="15"></textarea>
+                         <textarea class="form-control" id="message" name="message" rows="15"></textarea>
                         </div>
+                        <input type="hidden" name="userid" value="{{$user->id}}">
+                        <input type="hidden" name="docname" value="{{auth()->user()->name}}">
                         <div class="form-group">
                          <div>
                           <button class="btn btn-success btn-block" name="submit" type="submit">
@@ -34,8 +36,7 @@
                           </button>
                          </div>
                         </div>
-                    </form>
-                    
+                    {!! Form::close() !!}
                 </div>
                 </div>
             </div>

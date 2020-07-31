@@ -6,6 +6,7 @@ use App\Prescriptions;
 use Illuminate\Http\Request;
 use App\User;
 use App\UserDetails;
+use Illuminate\Support\Facades\DB;
 
 
 class PrescriptionsController extends Controller
@@ -21,12 +22,11 @@ class PrescriptionsController extends Controller
         $perPage = 10;
 
         if (!empty($keyword)) {
-            $user = User::where('acc_type', '3')
-                ->orWhere('name', 'LIKE', "%$keyword%")
+            $user = User::where('name', 'LIKE', "%$keyword%")
                 ->orWhere('email', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage); 
         } else {
-            $user = User::where('acc_type', '3')->paginate($perPage);
+            $user = User::latest()->paginate($perPage);
         }
 
         return view('prescri.userlist')->with('user', $user);
@@ -42,9 +42,10 @@ class PrescriptionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createpres($id)
     {
-        return view('prescri.create');
+        $user = DB::table('users')->where('id', $id)->first();
+        return view('prescri.create')->with('user',$user);
 
     }
 
@@ -56,7 +57,26 @@ class PrescriptionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this -> validate($request, array(
+            'userid' => 'required',
+            'docname' => 'required',
+            'title' => 'required',
+            'message' => 'required',
+        ));
+        
+        $pres = new Prescriptions;
+        
+        $pres->user_id = $request->userid;
+        $pres->doc_name = $request->docname;
+        $pres->title = $request->title;
+        $pres->prescription = $request->message;
+        
+        $pres->save();
+        toastr()->success('prescription has been added successfully!');
+
+        return back();
+        
+        // dd($request);
     }
 
     /**
@@ -67,7 +87,9 @@ class PrescriptionsController extends Controller
      */
     public function show($id)
     {
-        return view('prescri.show');
+        $pres = DB::table('prescriptions')->where('user_id', $id)->orderBy('created_at', 'desc')->get();
+        // dd($pres);
+        return view('prescri.show')->with('pres',$pres);
     }
 
     /**

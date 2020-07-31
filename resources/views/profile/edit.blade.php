@@ -15,76 +15,78 @@
                 {{-- {{ isset($userdetails->maritalstatus) ? $userdetails->maritalstatus : 'Married'}} --}}
                 @if (isset($userdetails))
                   <a href="/userdetails/{{auth()->user()->id}}/edit" class="btn btn-info btn-sm">Change Details</a>
+                  <div class="row">
+                    <label class="col-sm-3 col-form-label">{{ __('Name') }}</label>
+                    <div class="col-sm-9">
+                      <label class="col-sm col-form-label">{{ auth()->user()->name }}</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <label class="col-sm-3 col-form-label">{{ __('Email') }}</label>
+                    <div class="col-sm-9">
+                      <label class="col-sm col-form-label">{{ auth()->user()->email }}</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <label class="col-sm-3 col-form-label">{{ __('Blood Group') }}</label>
+                    <div class="col-sm-9">
+                      <label class="col-sm col-form-label">{{ $userdetails->bloodG }}</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <label class="col-sm-3 col-form-label">{{ __('Phone Number') }}</label>
+                    <div class="col-sm-9">
+                      <label class="col-sm col-form-label">{{ $userdetails->phone }}</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <label class="col-sm-3 col-form-label">{{ __('Emergency Contact') }}</label>
+                    <div class="col-sm-9">
+                      <label class="col-sm col-form-label">{{ $userdetails->emergency_number }}</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <label class="col-sm-3 col-form-label">{{ __('Gender') }}</label>
+                    <div class="col-sm-9">
+                      <label class="col-sm col-form-label">{{ $userdetails->gender }}</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <label class="col-sm-3 col-form-label">{{ __('Address') }}</label>
+                    <div class="col-sm-9">
+                      <label class="col-sm col-form-label">{{ $userdetails->address }}</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <label class="col-sm-3 col-form-label">{{ __('City') }}</label>
+                    <div class="col-sm-9">
+                      <label class="col-sm col-form-label">{{ $userdetails->city }}</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <label class="col-sm-3 col-form-label">{{ __('NIC') }}</label>
+                    <div class="col-sm-9">
+                      <label class="col-sm col-form-label">{{ $userdetails->nic }}</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <label class="col-sm-3 col-form-label">{{ __('Date of Birth') }}</label>
+                    <div class="col-sm-9">
+                      <label class="col-sm col-form-label">{{ $userdetails->dob }}</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <label class="col-sm-3 col-form-label">{{ __('Marital Status') }}</label>
+                    <div class="col-sm-9">
+                      <label class="col-sm col-form-label">{{ $userdetails->maritalstatus }}</label>
+                    </div>
+                  </div>
                 @else
                   <a href="/userdetails/create" class="btn btn-success btn-sm">Add Details</a>
+                  
                 @endif
               </div>
-              <div class="row">
-                <label class="col-sm-3 col-form-label">{{ __('Name') }}</label>
-                <div class="col-sm-9">
-                  <label class="col-sm col-form-label">{{ auth()->user()->name }}</label>
-                </div>
-              </div>
-              <div class="row">
-                <label class="col-sm-3 col-form-label">{{ __('Email') }}</label>
-                <div class="col-sm-9">
-                  <label class="col-sm col-form-label">{{ auth()->user()->email }}</label>
-                </div>
-              </div>
-              <div class="row">
-                <label class="col-sm-3 col-form-label">{{ __('Blood Group') }}</label>
-                <div class="col-sm-9">
-                  <label class="col-sm col-form-label">{{ $userdetails->bloodG }}</label>
-                </div>
-              </div>
-              <div class="row">
-                <label class="col-sm-3 col-form-label">{{ __('Phone Number') }}</label>
-                <div class="col-sm-9">
-                  <label class="col-sm col-form-label">{{ $userdetails->phone }}</label>
-                </div>
-              </div>
-              <div class="row">
-                <label class="col-sm-3 col-form-label">{{ __('Emergency Contact') }}</label>
-                <div class="col-sm-9">
-                  <label class="col-sm col-form-label">{{ $userdetails->emergency_number }}</label>
-                </div>
-              </div>
-              <div class="row">
-                <label class="col-sm-3 col-form-label">{{ __('Gender') }}</label>
-                <div class="col-sm-9">
-                  <label class="col-sm col-form-label">{{ $userdetails->gender }}</label>
-                </div>
-              </div>
-              <div class="row">
-                <label class="col-sm-3 col-form-label">{{ __('Address') }}</label>
-                <div class="col-sm-9">
-                  <label class="col-sm col-form-label">{{ $userdetails->address }}</label>
-                </div>
-              </div>
-              <div class="row">
-                <label class="col-sm-3 col-form-label">{{ __('City') }}</label>
-                <div class="col-sm-9">
-                  <label class="col-sm col-form-label">{{ $userdetails->city }}</label>
-                </div>
-              </div>
-              <div class="row">
-                <label class="col-sm-3 col-form-label">{{ __('NIC') }}</label>
-                <div class="col-sm-9">
-                  <label class="col-sm col-form-label">{{ $userdetails->nic }}</label>
-                </div>
-              </div>
-              <div class="row">
-                <label class="col-sm-3 col-form-label">{{ __('Date of Birth') }}</label>
-                <div class="col-sm-9">
-                  <label class="col-sm col-form-label">{{ $userdetails->dob }}</label>
-                </div>
-              </div>
-              <div class="row">
-                <label class="col-sm-3 col-form-label">{{ __('Marital Status') }}</label>
-                <div class="col-sm-9">
-                  <label class="col-sm col-form-label">{{ $userdetails->maritalstatus }}</label>
-                </div>
-              </div>
+              
 
             </div>
           </div>

@@ -16,7 +16,7 @@
     <link href="{{ asset('material') }}/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
     <link href="{{ asset('material') }}/demo/demo.css" rel="stylesheet" />
     @yield('externalcss')
-    @notify_css
+    @toastr_css
 
     {{-- <style>
         body{
@@ -47,6 +47,7 @@
         <script src="{{ asset('material') }}/js/core/popper.min.js"></script>
         <script src="{{ asset('material') }}/js/core/bootstrap-material-design.min.js"></script>
         <script src="{{ asset('material') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+        @jquery
         <!-- Plugin for the momentJs  -->
         <script src="{{ asset('material') }}/js/plugins/moment.min.js"></script>
         <!--  Plugin for Sweet Alert -->
@@ -89,7 +90,7 @@
         @stack('js')
 
         @yield('externaljs')
-        @notify_js
-        @notify_render
+        @toastr_js
+        {{-- @notify_render --}}
     </body>
 </html>

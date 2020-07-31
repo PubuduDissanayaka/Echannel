@@ -12,38 +12,44 @@
                 <p class="card-category">Specialized doctors table</p>
               </div>
               <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table table-hover">
-                    <thead class=" text-primary">
-                      <tr><th>
-                        ID
-                      </th>
-                      <th>
-                        Name
-                      </th>
-                      <th>
-                        Add Function
-                      </th>
-                    </tr></thead>
-                    
-                    <tbody>
-                        @foreach ($doctors as $doc)
-                            <tr>
-                            <td>
-                                {{$doc->id}}
-                            </td>
-                            <td>
-                                {{$doc->name}}
-                            </td>
-                            <td>
-                                <a href="/doctimes/{{$doc->id}}" class="btn btn-success btn-sm">View Schedules</a>
-                            </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
+                @if (isset($doctors))
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead class=" text-primary">
+                        <tr><th>
+                          ID
+                        </th>
+                        <th>
+                          Name
+                        </th>
+                        <th>
+                          Add Function
+                        </th>
+                      </tr></thead>
+                      
+                      <tbody>
+                          @foreach ($doctors as $doc)
+                              <tr>
+                              <td>
+                                  {{$doc->id}}
+                              </td>
+                              <td>
+                                  {{$doc->name}}
+                              </td>
+                              <td>
+                                  <a href="/doctimes/{{$doc->id}}" class="btn btn-success btn-sm">View Schedules</a>
+                              </td>
+                              </tr>
+                          @endforeach
+                      </tbody>
 
-                  </table>
-                </div>
+                    </table>
+                  </div>
+                    
+                @else
+                  <p class="lead">No Found Doctors </p>    
+                @endif
+
               </div>
             </div>
         </div>
