@@ -148,6 +148,7 @@
                               Select your Marital Status
                              </span>
                             </div>
+                            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                             <div class="form-group">
                              <div>
                               <button class="btn btn-primary btn-block" name="submit" type="submit">

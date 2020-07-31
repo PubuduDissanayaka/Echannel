@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'addtime', 'titlePage' => __('addtime')])
+@extends('layouts.app', ['activePage' => 'echannel', 'titlePage' => __('echannel')])
 
 @section('externalcss')
 <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->

@@ -12,7 +12,7 @@
                 <div class="col-md-4">
                     <div class="card">
                     <div class="card-header card-header-primary">
-                        <h4 class="card-title ">{{$dt->name}}</h4>
+                        <h4 class="card-title ">Dr. {{$dt->name}}</h4>
                     </div>
                     <div class="card-body">
                         <p>

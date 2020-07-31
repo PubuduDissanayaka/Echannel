@@ -53,7 +53,6 @@ class UserDetailsController extends Controller
             'user_id' => ''
         ));
         
-        
         $userdetails = new UserDetails;
         
         $userdetails->user_id = $request->user_id;
@@ -68,9 +67,11 @@ class UserDetailsController extends Controller
         $userdetails->maritalstatus = $request->maritalstatus;
         
         $userdetails->save();
-
-        return redirect()->action('${App\Http\Controllers\UserDetailsController@edit}');
-        return redirect()->route('userdetails.edit');
+        
+        // dd($request);
+        $userdetails = DB::table('user_details')->where('user_id', auth()->user()->id)->first();
+        // return redirect()->action('${App\Http\Controllers\UserDetailsController@edit}');
+        return view('profile.edit')->with('userdetails', $userdetails);
         // return view('profile.edit');
     }
 
